@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import ReminderList from "./components/ReminderList";
+import Reminder from "./models/reminder";
 
 function App() {
+  const [reminders, setReminders] = useState<Reminder[]>([
+    { id: 1, title: "Buy milk" },
+    { id: 2, title: "Go to the gym" },
+    { id: 3, title: "Learn React" },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ReminderList items={reminders} />
     </div>
   );
 }
